@@ -1,0 +1,53 @@
+/* 1 */
+
+SELECT SUM(ESTOQUE) FROM MEDICAMENTOS m 
+
+
+
+
+/* 2 */
+
+SELECT AVG((CURRENT_DATE - DATA_NASCIMENTO)/365) FROM TUTOR t
+
+
+
+
+/* 3 */
+
+SELECT MIN(m.preco)
+FROM MEDICAMENTOS m 
+
+
+
+
+/* 4 */
+
+SELECT MAX(p.peso)
+FROM PACIENTE p 
+
+
+
+
+/* 5 */
+
+SELECT COUNT(*)
+FROM TUTOR t
+
+
+
+
+/* 6 */
+
+SELECT UNIDADE, SUM(m.ESTOQUE * m.PRECO) AS total_estoque
+FROM MEDICAMENTOS m 
+GROUP BY m.UNIDADE 
+
+
+
+
+/* 7 */
+
+SELECT ID_RECEITA , SUM(total_item)
+FROM ITENSRECEITA i 
+GROUP BY i.ID_RECEITA 
+HAVING SUM(total_item) > 100
